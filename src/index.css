@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  
+  --color-neumo-bg: #E0E5EC;
+  --color-neumo-fg: #3D4852;
+  --color-neumo-muted: #6B7280;
+  --color-neumo-accent: #6C63FF;
+  --color-neumo-accent-light: #8B84FF;
+  --color-neumo-success: #38B2AC;
+  
+  --shadow-neumo-extruded: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+  --shadow-neumo-extruded-hover: 12px 12px 20px rgba(163, 177, 198, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.6);
+  --shadow-neumo-extruded-sm: 5px 5px 10px rgba(163, 177, 198, 0.6), -5px -5px 10px rgba(255, 255, 255, 0.5);
+  --shadow-neumo-inset: inset 6px 6px 10px rgba(163, 177, 198, 0.6), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+  --shadow-neumo-inset-deep: inset 10px 10px 20px rgba(163, 177, 198, 0.7), inset -10px -10px 20px rgba(255, 255, 255, 0.6);
+  --shadow-neumo-inset-sm: inset 3px 3px 6px rgba(163, 177, 198, 0.6), inset -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
+
+@layer base {
+  body {
+    @apply bg-neumo-bg text-neumo-fg font-sans antialiased selection:bg-neumo-accent/20 selection:text-neumo-accent;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .neumo-card {
+    @apply bg-neumo-bg rounded-[32px] shadow-neumo-extruded transition-all duration-300 hover:-translate-y-1 hover:shadow-neumo-extruded-hover;
+  }
+  
+  .neumo-button {
+    @apply bg-neumo-bg rounded-2xl shadow-neumo-extruded px-6 py-3 font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-neumo-extruded-hover active:translate-y-0.5 active:shadow-neumo-inset-sm;
+  }
+  
+  .neumo-button-primary {
+    @apply bg-neumo-accent text-white rounded-2xl shadow-neumo-extruded px-6 py-3 font-bold transition-all duration-300 hover:-translate-y-0.5 hover:bg-neumo-accent-light active:translate-y-0.5 active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.1)];
+  }
+  
+  .neumo-input {
+    @apply bg-neumo-bg rounded-2xl shadow-neumo-inset px-4 py-3 outline-none transition-all duration-300 focus:shadow-neumo-inset-deep focus:ring-2 focus:ring-neumo-accent focus:ring-offset-2 focus:ring-offset-neumo-bg;
+  }
+  
+  .neumo-well {
+    @apply bg-neumo-bg rounded-2xl shadow-neumo-inset-deep flex items-center justify-center;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+/* Hide Elfsight Watermarks */
+[class*="elfsight-app"] a[href*="elfsight.com"],
+[class*="elfsight-app"] [class*="WidgetTitle__Container"] + div a,
+div[id^="yottie-"] > div > a,
+div[class*="elfsight-app"] > div > a,
+.eapps-link,
+.elfsight-app-link,
+[class*="elfsight-app"] > div:last-child > a,
+[class*="elfsight-app"] > div:last-child > div > a,
+[class*="elfsight-app"] a[target="_blank"][rel*="noopener"],
+div[class*="elfsight-app"] > div:last-child,
+div[id^="yottie-"] > div:last-child {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
