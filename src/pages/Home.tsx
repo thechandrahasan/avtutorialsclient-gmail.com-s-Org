@@ -173,7 +173,7 @@ export default function Home() {
           <InstagramWidget 
             type="elfsight" 
             widgetId="a5a8c8a4-8384-4a8d-8c74-fae1dd5d3861" 
-            className="aspect-square" 
+            className="w-full" 
           />
         </div>
 

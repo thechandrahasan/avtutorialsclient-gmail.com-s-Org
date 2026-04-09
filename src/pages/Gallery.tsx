@@ -19,7 +19,7 @@ export default function Gallery() {
       <InstagramWidget 
         type="elfsight" 
         widgetId="a5a8c8a4-8384-4a8d-8c74-fae1dd5d3861" 
-        className="min-h-[600px] mb-24" 
+        className="mb-24" 
       />
 
       <div className="text-center mb-20">
